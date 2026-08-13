@@ -50,7 +50,9 @@ export function Services() {
                     onFocus={() => setActive(i)}
                     onClick={() => setActive(i)}
                     className={`flex w-full items-center gap-5 border-b border-border py-5 text-left text-xl font-semibold transition-colors md:text-2xl ${
-                      i === active ? "text-foreground" : "text-muted-foreground/60 hover:text-foreground"
+                      i === active
+                        ? "text-foreground"
+                        : "text-muted-foreground/60 hover:text-foreground"
                     }`}
                   >
                     <span className="text-[11px] tracking-widest">{s.id}</span>
@@ -64,7 +66,7 @@ export function Services() {
             </ul>
           </div>
 
-          <div className="relative flex justify-center">
+          <div className="relative hidden justify-center lg:flex">
             <DotFunnel className="w-full max-w-[460px]" />
             <div className="absolute inset-0">
               {["Attract", "Engage", "Convert", "Retain"].map((label, i) => (

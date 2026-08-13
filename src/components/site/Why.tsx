@@ -2,7 +2,7 @@ import { Reveal } from "@/components/Reveal";
 
 export function Why() {
   return (
-    <section id="why" className="grain relative overflow-hidden bg-paper py-28 text-ink">
+    <section id="why" className="grain relative overflow-hidden bg-paper py-20 text-ink md:py-28">
       <div className="mx-auto max-w-5xl px-6 text-center">
         <Reveal>
           <p className="text-[11px] font-semibold tracking-[0.3em] uppercase opacity-50">
@@ -11,13 +11,13 @@ export function Why() {
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="relative mt-10 select-none">
-            <h2 className="font-display text-[26vw] leading-[0.8] font-extrabold md:text-[220px]">
+          <div className="relative mt-6 select-none md:mt-10">
+            <h2 className="font-display text-[20vw] leading-[0.85] font-extrabold md:text-[220px]">
               WHY 0X
             </h2>
             <h2
               aria-hidden
-              className="font-display absolute inset-x-0 top-full text-[26vw] leading-[0.8] font-extrabold md:text-[220px]"
+              className="font-display absolute inset-x-0 top-[70%] hidden text-[20vw] leading-[0.85] font-extrabold md:block md:text-[220px]"
               style={{
                 transform: "scaleY(-1)",
                 maskImage: "linear-gradient(to bottom, rgba(0,0,0,0.35), transparent 55%)",
@@ -30,9 +30,9 @@ export function Why() {
         </Reveal>
 
         <Reveal delay={200}>
-          <p className="mx-auto mt-40 max-w-3xl text-xl leading-snug font-medium md:mt-56 md:text-3xl">
-            Agencies hand you decks. Freelancers vanish. Templates look like everyone else. We do the
-            thinking, the design and the code — and you get{" "}
+          <p className="mx-auto mt-10 max-w-3xl text-xl leading-snug font-medium md:mt-44 md:text-3xl">
+            Agencies hand you decks. Freelancers vanish. Templates look like everyone else. We do
+            the thinking, the design and the code — and you get{" "}
             <span className="marker-lime rounded-[4px]">one thing that actually ships</span>.
           </p>
         </Reveal>

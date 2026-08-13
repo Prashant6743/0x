@@ -60,7 +60,11 @@ export function Nav() {
           </div>
           <ul className="mt-16 space-y-2">
             {LINKS.map((l, i) => (
-              <li key={l.href} style={{ animationDelay: `${i * 60}ms` }} className="animate-fade-in">
+              <li
+                key={l.href}
+                style={{ animationDelay: `${i * 60}ms` }}
+                className="animate-fade-in"
+              >
                 <a
                   href={l.href}
                   onClick={() => setOpen(false)}
@@ -72,7 +76,12 @@ export function Nav() {
             ))}
           </ul>
           <div className="mt-16 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
-            <a className="hover:text-lime" href={SOCIALS.instagram} target="_blank" rel="noreferrer">
+            <a
+              className="hover:text-lime"
+              href={SOCIALS.instagram}
+              target="_blank"
+              rel="noreferrer"
+            >
               Instagram
             </a>
             <a className="hover:text-lime" href={SOCIALS.x} target="_blank" rel="noreferrer">

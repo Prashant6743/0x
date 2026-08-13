@@ -1,7 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
 import { SOCIALS } from "@/lib/site";
 
-const MARQUEE = "Web & mobile apps · UX & product design · Product development · Award-class web design · Communication design · ";
+const MARQUEE =
+  "Web & mobile apps · UX & product design · Product development · Award-class web design · Communication design · ";
 
 export function Contact() {
   return (
@@ -26,7 +27,8 @@ export function Contact() {
           <span className="marker-lime rounded-[6px]">Let's build it.</span>
         </h2>
         <p className="mx-auto mt-6 max-w-lg text-muted-foreground">
-          Message us on WhatsApp and you'll hear back from a human today — no forms, no sales funnel.
+          Message us on WhatsApp and you'll hear back from a human today — no forms, no sales
+          funnel.
         </p>
         <a
           href={SOCIALS.whatsapp}
