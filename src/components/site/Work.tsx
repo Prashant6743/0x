@@ -14,6 +14,7 @@ interface WorkItem {
   description: string;
   year: string;
   img: string;
+  objectPosition?: string;
 }
 
 const ITEMS: WorkItem[] = [
@@ -25,6 +26,7 @@ const ITEMS: WorkItem[] = [
       "Sub-second performance, bespoke React/Shopify engineering, and high-conversion storefronts.",
     year: "2026",
     img: workNorthpeak,
+    objectPosition: "object-left",
   },
   {
     title: "CodeUsagi",
@@ -106,7 +108,7 @@ export function Work() {
                         src={it.img}
                         alt={it.title}
                         loading="lazy"
-                        className="h-56 w-full object-cover transition-all duration-700 group-hover:scale-[1.05]"
+                        className={`h-56 w-full object-cover transition-all duration-700 group-hover:scale-[1.05] ${it.objectPosition ?? "object-center"}`}
                       />
                       <div className="absolute top-3 right-3 rounded-full bg-background/80 px-2.5 py-1 text-[11px] font-mono text-foreground backdrop-blur-md border border-border/80 flex items-center gap-1.5">
                         <span className="size-2 rounded-full bg-lime animate-pulse" />
