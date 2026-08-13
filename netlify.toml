@@ -1,14 +1,11 @@
 [build]
-  command = "npm install && npm run build:netlify"
+  command = "bun run build"
   publish = ".output/public"
 
 [build.environment]
   NODE_VERSION = "20"
-  NPM_FLAGS = "--legacy-peer-deps"
 
-# Serve index.html for all routes (SPA fallback)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
-  force = false

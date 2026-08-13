@@ -1,6 +1,6 @@
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import workNorthpeak from "@/assets/work-northpeak.png";
+import workNorthpeak from "@/assets/northpeak.png";
 import workCodeusagi from "@/assets/work-codeusagi.png";
 import workNexify from "@/assets/work-nexify.png";
 import workNextstep from "@/assets/work-nextstep.png";
