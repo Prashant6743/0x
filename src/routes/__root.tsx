@@ -87,6 +87,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@0xstudio04" },
+      { name: "google-site-verification", content: "GG0105FoD4DyjZv-XL3qNk--41NpPfU7OATLfGoGS7w" },
     ],
     links: [
       {
@@ -115,6 +116,8 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="GG0105FoD4DyjZv-XL3qNk--41NpPfU7OATLfGoGS7w" />
       </head>
       <body>
         {children}
