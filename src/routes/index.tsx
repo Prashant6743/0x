@@ -3,14 +3,15 @@ import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/site/Hero";
 import { Why } from "@/components/site/Why";
 import { Services } from "@/components/site/Services";
+import { VideoEditing } from "@/components/site/VideoEditing";
 import { Stats } from "@/components/site/Stats";
 import { Process } from "@/components/site/Process";
 import { Work } from "@/components/site/Work";
 import { Contact } from "@/components/site/Contact";
 
-const title = "0xStudio — Design & Product Studio";
+const title = "0xStudio — Design, Engineering & Video Studio";
 const description =
-  "0xStudio designs and builds web & mobile apps, product experiences and award-class websites. One team, fixed scope, shipped in weeks.";
+  "0xStudio designs and builds web & mobile apps, award-class websites and high-retention video & motion reels. One team, fixed scope, shipped in weeks.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,6 +34,7 @@ function Index() {
       <Hero />
       <Why />
       <Services />
+      <VideoEditing />
       <Stats />
       <Process />
       <Work />

@@ -41,4 +41,11 @@ export const SERVICES = [
       "Identity, decks, campaign systems and content that make the brand sound like one confident voice everywhere.",
     tag: "@brand",
   },
+  {
+    id: "06",
+    title: "Video & Motion Editing",
+    blurb:
+      "High-retention short-form reels, brand films, kinetic typography and sound design engineered to stop the scroll.",
+    tag: "@motion",
+  },
 ];

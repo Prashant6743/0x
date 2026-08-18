@@ -117,7 +117,10 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
         {/* Google Search Console Verification */}
-        <meta name="google-site-verification" content="GG0105FoD4DyjZv-XL3qNk--41NpPfU7OATLfGoGS7w" />
+        <meta
+          name="google-site-verification"
+          content="GG0105FoD4DyjZv-XL3qNk--41NpPfU7OATLfGoGS7w"
+        />
       </head>
       <body>
         {children}

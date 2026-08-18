@@ -5,6 +5,7 @@ import { SOCIALS } from "@/lib/site";
 const LINKS = [
   { label: "Why us", href: "#why" },
   { label: "Services", href: "#services" },
+  { label: "Video & Motion", href: "#video" },
   { label: "Process", href: "#process" },
   { label: "Work", href: "#work" },
   { label: "Contact", href: "#contact" },
