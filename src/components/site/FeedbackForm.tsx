@@ -49,7 +49,7 @@ export function FeedbackForm() {
 
   async function onSubmit(data: FormValues) {
     try {
-      await submitLead({
+      const leadData = {
         name: data.name,
         email: data.email,
         company: data.company || undefined,
@@ -57,10 +57,9 @@ export function FeedbackForm() {
         budget: data.budget || undefined,
         message: data.message,
         referral: data.referral || undefined,
-      });
+      };
 
-      // Send email alert via EmailJS
-      sendLeadEmail({
+      const emailPayload = {
         name: data.name,
         email: data.email,
         company: data.company,
@@ -70,11 +69,26 @@ export function FeedbackForm() {
         budget: data.budget,
         message: data.message,
         referral: data.referral,
-      }).catch((emailErr) => {
-        console.error("EmailJS dispatch failed:", emailErr);
-      });
+      };
 
-      setSubmitted(true);
+      // Run both in parallel so Supabase RLS issues do not prevent EmailJS dispatch
+      const [dbResult, emailResult] = await Promise.allSettled([
+        submitLead(leadData),
+        sendLeadEmail(emailPayload),
+      ]);
+
+      if (dbResult.status === "rejected") {
+        console.error("Supabase submitLead error:", dbResult.reason);
+      }
+      if (emailResult.status === "rejected") {
+        console.error("EmailJS dispatch error:", emailResult.reason);
+      }
+
+      if (dbResult.status === "fulfilled" || emailResult.status === "fulfilled") {
+        setSubmitted(true);
+      } else {
+        toast.error("Something went wrong. Please try again or WhatsApp us directly.");
+      }
     } catch (err) {
       console.error(err);
       toast.error("Something went wrong. Please try again or WhatsApp us directly.");
