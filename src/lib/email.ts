@@ -16,7 +16,7 @@ const serviceId =
 
 const templateId =
   (typeof import.meta !== "undefined" && import.meta.env?.VITE_EMAILJS_TEMPLATE_ID) ||
-  "template_m5kwe4b";
+  "template_0x_studio_leads";
 
 const publicKey =
   (typeof import.meta !== "undefined" && import.meta.env?.VITE_EMAILJS_PUBLIC_KEY) ||
