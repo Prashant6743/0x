@@ -8,9 +8,14 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Toaster } from "sonner";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { FeedbackDrawerProvider } from "../hooks/use-feedback-drawer";
+import { FeedbackForm } from "../components/site/FeedbackForm";
+import { ReviewDrawerProvider } from "../hooks/use-review-drawer";
+import { ReviewForm } from "../components/site/ReviewForm";
 
 function NotFoundComponent() {
   return (
@@ -135,8 +140,26 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <FeedbackDrawerProvider>
+        <ReviewDrawerProvider>
+          {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+          <Outlet />
+          {/* Global feedback/project-brief drawer */}
+          <FeedbackForm />
+          {/* Global review submission drawer */}
+          <ReviewForm />
+          <Toaster
+            position="bottom-center"
+            toastOptions={{
+              style: {
+                background: "oklch(0.14 0 0)",
+                border: "1px solid oklch(1 0 0 / 12%)",
+                color: "oklch(0.98 0 0)",
+              },
+            }}
+          />
+        </ReviewDrawerProvider>
+      </FeedbackDrawerProvider>
     </QueryClientProvider>
   );
 }

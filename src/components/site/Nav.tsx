@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { SOCIALS } from "@/lib/site";
+import { useFeedbackDrawer } from "@/hooks/use-feedback-drawer";
 
 const LINKS = [
   { label: "Why us", href: "#why" },
@@ -13,6 +14,7 @@ const LINKS = [
 
 export function Nav() {
   const [open, setOpen] = useState(false);
+  const { open: openForm } = useFeedbackDrawer();
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -38,16 +40,15 @@ export function Nav() {
             0X<span className="marker-lime rounded-[4px]">STUDIO</span>
           </a>
 
-          <a
-            href={SOCIALS.whatsapp}
-            target="_blank"
-            rel="noreferrer"
+          <button
+            id="nav-start-project"
+            onClick={openForm}
             className="group flex items-center gap-1.5 rounded-full bg-ink px-4 py-2.5 text-xs font-semibold text-paper transition-colors hover:bg-lime hover:text-ink"
           >
             <span className="hidden sm:inline">Start a project</span>
             <span className="sm:hidden">Start</span>
             <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
+          </button>
         </nav>
       </header>
 

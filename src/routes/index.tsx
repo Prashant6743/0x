@@ -7,7 +7,9 @@ import { VideoEditing } from "@/components/site/VideoEditing";
 import { Stats } from "@/components/site/Stats";
 import { Process } from "@/components/site/Process";
 import { Work } from "@/components/site/Work";
+import { Reviews } from "@/components/site/Reviews";
 import { Contact } from "@/components/site/Contact";
+import { fetchReviews } from "@/lib/supabase";
 
 const title = "0xStudio — Design, Engineering & Video Studio";
 const description =
@@ -24,10 +26,20 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
+  loader: async () => {
+    try {
+      const initialReviews = await fetchReviews();
+      return { initialReviews };
+    } catch (e) {
+      console.error("Loader error fetching reviews:", e);
+      return { initialReviews: [] };
+    }
+  },
   component: Index,
 });
 
 function Index() {
+  const { initialReviews } = Route.useLoaderData();
   return (
     <main className="bg-background">
       <Nav />
@@ -38,6 +50,7 @@ function Index() {
       <Stats />
       <Process />
       <Work />
+      <Reviews initialReviews={initialReviews} />
       <Contact />
     </main>
   );

@@ -1,10 +1,12 @@
 import { ArrowUpRight } from "lucide-react";
 import { SOCIALS } from "@/lib/site";
+import { useFeedbackDrawer } from "@/hooks/use-feedback-drawer";
 
 const MARQUEE =
   "Web & mobile apps · UX & product design · Product development · Award-class web design · Communication design · ";
 
 export function Contact() {
+  const { open } = useFeedbackDrawer();
   return (
     <footer id="contact" className="grain relative overflow-hidden bg-background pt-24">
       <div className="border-y border-border py-6">
@@ -30,15 +32,25 @@ export function Contact() {
           Message us on WhatsApp and you'll hear back from a human today — no forms, no sales
           funnel.
         </p>
-        <a
-          href={SOCIALS.whatsapp}
-          target="_blank"
-          rel="noreferrer"
-          className="sticker group mt-10 inline-flex items-center gap-2 rounded-full bg-lime px-8 py-4 text-sm font-bold text-ink"
-        >
-          Chat on WhatsApp
-          <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-        </a>
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+          <button
+            id="contact-start-project"
+            onClick={open}
+            className="sticker group inline-flex items-center gap-2 rounded-full bg-lime px-8 py-4 text-sm font-bold text-ink"
+          >
+            Start a Project
+            <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </button>
+          <a
+            href={SOCIALS.whatsapp}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full border border-white/15 px-8 py-4 text-sm font-semibold text-muted-foreground transition-colors hover:border-white/30 hover:text-foreground"
+          >
+            Chat on WhatsApp
+            <ArrowUpRight className="size-4" />
+          </a>
+        </div>
       </div>
 
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 border-t border-border px-6 py-8 text-sm text-muted-foreground md:flex-row">
